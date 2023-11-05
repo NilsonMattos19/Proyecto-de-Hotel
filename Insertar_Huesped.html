@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro de Huespedes</title>
+	<style>
+		.container {
+			text-align: center;
+		}
+		body {
+  		background-color: cornflowerblue;
+		}
+	</style>
+</head>
+<body>
+	<a href="Menu_Inicial.php">
+		<img id="logo" src="Icons-Land-Buildings-Hotel-5-Stars.512.png" alt="Logo del hotel" height="143px">
+	</a>
+	<div class="container">
+		<img src="Registrar.jpg" alt="Imagen de Registrar"><br>
+		<h1>Registro de Huespedes</h1>
+		<form action="Insertar_huesped.php" method="POST">
+			<label for="nombre">Nombre:</label>
+			<input type="text" id="nombre" name="nombre"><br><br>
+			
+			<label for="telefono">Telefono:</label>
+			<input type="text" id="telefono" name="telefono"><br><br>
+			
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email"><br><br>
+			
+			<input type="submit" value="Guardar">
+		</form>
+	</div>
+</body>
+</html>

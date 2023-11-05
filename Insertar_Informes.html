@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro de Informe</title>
+	<style>
+		.container {
+			text-align: center;
+		}
+		body {
+  		background-color: cornflowerblue;
+		}
+	</style>
+</head>
+<body>
+	<a href="Menu_Inicial.php">
+		<img id="logo" src="Icons-Land-Buildings-Hotel-5-Stars.512.png" alt="Logo del hotel" height="143px">
+	</a>
+  <div class="container">
+		<img src="Registrar.jpg" alt="Imagen de Registrar"><br>
+	<h1>Registro de Informe</h1>
+	<form action="Insertar_Informes.php" method="post">
+		<label for="fecha_generacion">Fecha de generacion:</label>
+		<input type="date" id="fecha_generacion" name="fecha_generacion"><br><br>
+		<label for="tipo">Tipo:</label>
+		<input type="text" id="tipo" name="tipo"><br><br>
+		<label for="contenido"><h3>Descripcion:</h3></label>
+		<textarea id="contenido" name="contenido" rows="7" cols="50"></textarea><br><br>
+		<input type="submit" value="Guardar">
+	</form>
+</body>
+</html>
