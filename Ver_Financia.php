@@ -46,6 +46,7 @@
 	<table>
 		<tr>
 			<th>ID</th>
+			<th>Fecha de Generacion</th>
 			<th>Total Ingresos</th>
 			<th>Total Gastos</th>
 			<th>Acciones</th>
@@ -65,6 +66,7 @@
 		while ($fila = mysqli_fetch_array($resultado)) {
 			echo "<tr>";
 			echo "<td>" . $fila['id'] . "</td>";
+			echo "<td>" . $fila["fecha_generacion"] . "</td>";
 			echo "<td>" . $fila['total_ingresos'] . "</td>";
 			echo "<td>" . $fila['total_gastos'] . "</td>";
 			echo "<td>";

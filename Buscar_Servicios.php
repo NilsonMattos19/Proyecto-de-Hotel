@@ -74,7 +74,7 @@
 			if (mysqli_num_rows($resultado) > 0) {
 				// Mostrar los resultados en una tabla
 				echo "<h2>Resultados de la búsqueda:</h2>";
-				echo "<table border='1'>";
+				echo "<table border='1' style='margin: 0 auto;'>";
 				echo "<tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th></tr>";
 				while ($fila = mysqli_fetch_assoc($resultado)) {
 					echo "<tr><td>".$fila['id']."</td><td>".$fila['nombre']."</td><td>".$fila['descripcion']."</td><td>".$fila['precio']."</td></tr>";

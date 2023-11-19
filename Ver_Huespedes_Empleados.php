@@ -98,48 +98,50 @@
 	</style>
 </head>
 <body>
-	<h1>Lista de Huespedes</h1>
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>Nombre</th>
-			<th>Telefono</th>
-			<th>Email</th>
-			<th>Acciones</th>
-		</tr>
-		<?php
-			//Conectar a la base de datos
-			$conexion = mysqli_connect("localhost", "root", "", "hotel");
+<h1>Lista de Huespedes</h1>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Nombre</th>
+		<th>Telefono</th>
+		<th>Email</th>
+		<th>Apartamento</th> <!-- Nueva columna -->
+		<th>Acciones</th>
+	</tr>
+	<?php
+		// Conectar a la base de datos
+		$conexion = mysqli_connect("localhost", "root", "", "hotel");
 
-			//Verificar si la conexion fue exitosa
-			if (mysqli_connect_errno()) {
-  				echo "Error al conectar con la base de datos: " . mysqli_connect_error();
-			}
+		// Verificar si la conexión fue exitosa
+		if (mysqli_connect_errno()) {
+			echo "Error al conectar con la base de datos: " . mysqli_connect_error();
+		}
 
-			//Query para obtener los huespedes de la tabla huespedes
-			$query = "SELECT * FROM huespedes";
+		// Query para obtener los huéspedes de la tabla huespedes
+		$query = "SELECT * FROM huespedes";
 
-			//Ejecutar el query
-			$resultado = mysqli_query($conexion, $query);
+		// Ejecutar el query
+		$resultado = mysqli_query($conexion, $query);
 
-			//Iterar sobre los resultados y mostrarlos en la tabla
-			while ($fila = mysqli_fetch_assoc($resultado)) {
-				echo "<tr>";
-				echo "<td>" . $fila["id"] . "</td>";
-				echo "<td>" . $fila["nombre"] . "</td>";
-				echo "<td>" . $fila["telefono"] . "</td>";
-				echo "<td>" . $fila["email"] . "</td>";
-				echo "<td>";
-				echo "<a href='Actualizar_Huesped.php?id=" . $fila["id"] . "'>Editar</a> ";
-				echo "<a href='Eliminar_Huesped.php?id=" . $fila["id"] . "' onclick='return confirm(\"¿Está seguro de que desea eliminar este huesped?\")'>Eliminar</a>";
-				echo "</td>";
-				echo "</tr>";
-			}
+		// Iterar sobre los resultados y mostrarlos en la tabla
+		while ($fila = mysqli_fetch_assoc($resultado)) {
+			echo "<tr>";
+			echo "<td>" . $fila["id"] . "</td>";
+			echo "<td>" . $fila["nombre"] . "</td>";
+			echo "<td>" . $fila["telefono"] . "</td>";
+			echo "<td>" . $fila["email"] . "</td>";
+			echo "<td>" . $fila["apartamento"] . "</td>"; // Mostrar el nuevo campo "Apartamento"
+			echo "<td>";
+			echo "<a href='Actualizar_Huesped.php?id=" . $fila["id"] . "'>Editar</a> ";
+			echo "<a href='Eliminar_Huesped.php?id=" . $fila["id"] . "' onclick='return confirm(\"¿Está seguro de que desea eliminar este huésped?\")'>Eliminar</a>";
+			echo "</td>";
+			echo "</tr>";
+		}
 
-			//Cerrar la conexion
-			mysqli_close($conexion);
-		?>
-	</table><br><br>
+		// Cerrar la conexión
+		mysqli_close($conexion);
+	?>
+</table><br><br>
 	<a href="Menu_Inicial.php" class="button">Regresar al menú</a>
 </body>
 </html>

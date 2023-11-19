@@ -10,8 +10,8 @@
       background-image: url("Vacaciones.jpeg");
       background-size: cover;
       background-repeat: no-repeat;
-      background-color: #F5F5F5; /* Cambia aquí por el color de fondo que desees */
-      font-family: sans-serif; /* Cambia aquí por la fuente que desees */
+      background-color: #F5F5F5; /* color de fondo */
+      font-family: sans-serif; /* fuente de letra */
     }
     /* Estilos para el navbar */
     nav {
@@ -47,7 +47,7 @@
           <a href="Insertar_Huesped.html">Registrar Huespedes</a>
           <a href="Insertar_Empleado.html">Registrar Empleado</a>
           <a href="Insertar_Financia.php">Registrar Financia</a>
-          <a href="Insertar_Informes.html">Registrar Informes</a>
+          <a href="Insertar_Informes.php">Registrar Informes</a>
           <a href="Insertar_Reserva.php">Registrar Reservas</a>
         </div>
       </li>

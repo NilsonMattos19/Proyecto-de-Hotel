@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<meta charset="UTF-8">
 	<title>Registrar Informe Financiero</title>
 	<style>
 		.container {
@@ -19,6 +20,9 @@
 		<img src="Registrar.jpg" alt="Imagen de Registrar"><br>
 	<h1>Registrar informe financiero</h1>
 	<form action="Guardar_Financia.php" method="POST">
+		<label for="fecha_generacion">Fecha de Generación: </label>
+		<input type="date" id="fecha_generacion" name="fecha_generacion"><br><br>
+
 		<label for="total_ingresos">Total de ingresos:</label>
 		<input type="text" id="total_ingresos" name="total_ingresos"><br><br>
 		

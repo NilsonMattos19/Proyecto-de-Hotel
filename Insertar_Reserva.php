@@ -18,7 +18,7 @@
   <div class="container">
 		<img src="Registrar.jpg" alt="Imagen de Registrar"><br>
 	<h1>Registro de Reserva</h1>
-	<form action="Guardar_Reserva.php" method="post">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 		<label for="fecha_inicio">Fecha de inicio:</label>
 		<input type="date" id="fecha_inicio" name="fecha_inicio"><br><br>
 		<label for="fecha_fin">Fecha de fin:</label>
@@ -55,5 +55,38 @@
 		</select><br><br>
 		<input type="submit" value="Guardar">
 	</form>
+
+	<?php
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// Obtener datos del formulario
+		$fecha_inicio = $_POST["fecha_inicio"];
+		$fecha_fin = $_POST["fecha_fin"];
+		$estado = $_POST["estado"];
+		$precio_total = $_POST["precio_total"];
+		$huesped_id = $_POST["huesped"];
+
+		// Conexión a la base de datos
+		$conn = mysqli_connect($host, $user, $password, $dbname);
+
+		// Consulta para insertar una nueva reserva
+		$sql = "INSERT INTO reservas (fecha_inicio, fecha_fin, estado, precio_total, huesped) VALUES ('$fecha_inicio', '$fecha_fin', '$estado', '$precio_total', '$huesped_id')";
+
+		// Ejecutar consulta y verificar si se realizó correctamente
+		if (mysqli_query($conn, $sql)) {
+			echo "<br>";
+			echo "Reserva registrada exitosamente";
+			
+		} else {
+			echo "Error al registrar reserva: " . mysqli_error($conn);
+		}
+
+		// Cerrar la conexión a la base de datos
+		mysqli_close($conn);
+
+		// Redirigir a la página 'Lista_Servicio.php' después de 3 segundos
+		header("refresh:3;url=Lista_Servicio.php");
+	}
+	?>
+  </div>
 </body>
 </html>
